@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: simonwheatley
-Donate link: http://www.simonwheatley.co.uk/wordpress/
+Donate link: http://www.simonwheatley.co.uk/wordpress-plugins/
 Tags: tinymce, rich text editor, excerpt
 Requires at least: 2.2.3
 Tested up to: 2.2.3
@@ -13,8 +13,9 @@ This is a simple plugin that enables rich text editing on the excerpt field. Tes
 
 If you have any plugins installed which alter TinyMCE, e.g. to add additional buttons, they will also be applied here.
 
-Known issues:
-* You can’t send images to the excerpt editor, you’ll just have to send them to the main editor then copy and paste.
+=Known issues:=
+
+* You can’t send images to the excerpt editor from the edit page file browser; you just have to send them to the main editor, then copy and paste.
 
 == Installation ==
 
