@@ -4,14 +4,15 @@ Donate link: http://www.simonwheatley.co.uk/wordpress-plugins/
 Tags: tinymce, rich text editor, excerpt
 Requires at least: 2.2.3
 Tested up to: 2.2.3
+Stable tag: 1.1
 
-Enables rich text editing on the excerpt field. Tested in Wordpress 2.2.3 on PHP5, probably works in 2.2.x, and maybe even 2.x… YMMV
+Enables rich text editing on the excerpt field.
 
 == Description ==
 
 This is a simple plugin that enables rich text editing on the excerpt field. Tested in Wordpress 2.2.3 on PHP5, but probably works in 2.2.x, and maybe even 2.x… your mileage may vary. Any bugs? Let me know.
 
-If you have any plugins installed which alter TinyMCE, e.g. to add additional buttons, they will also be applied here.
+If you have any plugins installed which alter TinyMCE, e.g. to add additional buttons, they will also be applied to the excerpt editor.
 
 =Known issues:=
 
