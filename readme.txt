@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== TinyMCE Excerpt ===
 Contributors: simonwheatley
 Donate link: http://www.simonwheatley.co.uk/wordpress-plugins/
 Tags: tinymce, rich text editor, excerpt
