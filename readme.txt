@@ -10,13 +10,15 @@ Enables rich text editing on the excerpt field.
 
 == Description ==
 
-This is a simple plugin that enables rich text editing on the excerpt field. Tested in Wordpress 2.2.3 on PHP5, but probably works in 2.2.x, and maybe even 2.x… your mileage may vary. Any bugs? Let me know.
+This is a simple plugin that enables rich text editing on the excerpt field.
 
-If you have any plugins installed which alter TinyMCE, e.g. to add additional buttons, they will also be applied to the excerpt editor.
+If you have any plugins installed which alter TinyMCE, e.g. to add additional 
+buttons, they will also be applied to the excerpt editor.
 
-=Known issues:=
+==Known issues==
 
-* You can’t send images to the excerpt editor from the edit page file browser; you just have to send them to the main editor, then copy and paste.
+* You can’t send images to the excerpt editor from the edit page file browser; 
+you just have to send them to the main editor, then copy and paste.
 
 == Installation ==
 
