@@ -67,6 +67,8 @@ function tme_admin_css()
 // We need to enqueue some scripts. This is not an ideal action 
 // hook, but it does the business
 add_action('admin_xml_ns', 'tme_admin_enqueue_js');
+// Paragraphise the excerpt on save
+add_filter('edit_post_excerpt', 'wpautop');
 // Some CSS
 add_action('admin_head', 'tme_admin_css');
 // Some inline JS in the head, to avoid loading another file
