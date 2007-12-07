@@ -27,12 +27,20 @@ auto-paragraphised. It is now.
 
 ==Known issues / bugs==
 
+Please [report any issues](http://www.simonwheatley.co.uk/contact-me/) that you find.
+
 * When you click the "advanced toolbar" button, the advanced toolbar shows up on the Content, rather than the excerpt. Reported by [Jorge Villalobos](http://hypenotic.com/)
 * You can’t send images to the excerpt editor from the edit page file browser; 
 you have to send them to the main editor, then copy and paste.
 * To show the excerpt you have to use a template which uses 
 [the_excerpt](http://codex.wordpress.org/Template_Tags/the_excerpt), rather 
 than [the_content](http://codex.wordpress.org/Template_Tags/the_content).
+
+== Requests ==
+
+I'm simply noting requests here, I've not necessarily looked into how possible any of these are or how much effort they might require.
+
+* It would be great if you could switch between TinyMCE and Quicktags as the content does. Requested by [Jorge Villalobos](http://hypenotic.com/)
 
 == Installation ==
 
