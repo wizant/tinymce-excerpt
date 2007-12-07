@@ -25,8 +25,9 @@ Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
 and providing code to fix an issue where the excerpt content wasn't 
 auto-paragraphised. It is now.
 
-==Known issues==
+==Known issues / bugs==
 
+* When you click the "advanced toolbar" button, the advanced toolbar shows up on the Content, rather than the excerpt. Reported by [Jorge Villalobos](http://hypenotic.com/)
 * You can’t send images to the excerpt editor from the edit page file browser; 
 you have to send them to the main editor, then copy and paste.
 * To show the excerpt you have to use a template which uses 
