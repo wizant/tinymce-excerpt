@@ -3,9 +3,21 @@
 Plugin Name: TinyMCE Excerpt
 Plugin URI: http://www.simonwheatley.co.uk/wordpress-plugins/tinymce-excerpt/
 Description: Use Tiny MCE for the excerpt while editing the excerpt.
-Version: 1.1
+Version: 1.3
 Author: Simon Wheatley
 Author URI: http://www.simonwheatley.co.uk/
+
+
+= v1.3 2008/04/08 =
+
+* Fix: Now works with WordPress 2.5. Thanks to [J Bradford Dillon](http://www.jbradforddillon.com/web-development/tinymce-excerpt-for-25/) 
+for reporting the issue & providing some code. Retains backwards compatibility for previous versions of WordPress.
+
+= v1.2 2007/11/23 =
+
+* Fix: Thanks to [Jascha Ephraim](http://www.jaschaephraim.com/) for spotting 
+and providing code to fix an issue where the excerpt content wasn't 
+auto-paragraphised. It is now.
 
 v1.1 - Safer use of jQuery, through the jQuery var itself. There's an awful lot of 
 scripting going on in the edit pages.
