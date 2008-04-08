@@ -34,8 +34,8 @@ function tme_convert_excerpt_js()
 	echo '<script type="text/javascript">';
 	echo "\n";
 	echo '/* <![CDATA[ */';
-	echo "\n// JQ JS to add the class 'mceEditor' to the excerpt textarea\n";
-	echo 'jQuery(document).ready( function () { jQuery("#excerpt").addClass("mceEditor"); } );';
+	echo "\n// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5\n";
+	echo 'jQuery(document).ready( function () { jQuery("#excerpt").addClass("mceEditor"); } ); if ( typeof tinyMCE.execCommand == "function" ) tinyMCE.execCommand("mceAddControl", false, "excerpt");';
 	echo "\n";
 	echo '/* ]]> */';
 	echo "\n";
@@ -67,6 +67,8 @@ function tme_admin_css()
 // We need to enqueue some scripts. This is not an ideal action 
 // hook, but it does the business
 add_action('admin_xml_ns', 'tme_admin_enqueue_js');
+// Paragraphise the excerpt on save
+add_filter('edit_post_excerpt', 'wpautop');
 // Some CSS
 add_action('admin_head', 'tme_admin_css');
 // Some inline JS in the head, to avoid loading another file
