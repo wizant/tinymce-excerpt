@@ -34,8 +34,8 @@ function tme_convert_excerpt_js()
 	echo '<script type="text/javascript">';
 	echo "\n";
 	echo '/* <![CDATA[ */';
-	echo "\n// JQ JS to add the class 'mceEditor' to the excerpt textarea\n";
-	echo 'jQuery(document).ready( function () { jQuery("#excerpt").addClass("mceEditor"); } );';
+	echo "\n// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5\n";
+	echo 'jQuery(document).ready( function () { jQuery("#excerpt").addClass("mceEditor"); } ); if ( typeof tinyMCE.execCommand == "function" ) tinyMCE.execCommand("mceAddControl", false, "excerpt");';
 	echo "\n";
 	echo '/* ]]> */';
 	echo "\n";

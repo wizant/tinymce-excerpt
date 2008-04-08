@@ -3,8 +3,8 @@ Contributors: simonwheatley
 Donate link: http://www.simonwheatley.co.uk/wordpress-plugins/
 Tags: tinymce, rich text editor, excerpt
 Requires at least: 2.2.3
-Tested up to: 2.3
-Stable tag: 1.2
+Tested up to: 2.5
+Stable tag: 1.3
 
 Enables rich text editing on the excerpt field.
 
@@ -19,6 +19,12 @@ Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
 
 == Change Log ==
 
+= v1.3 2008/04/08 =
+
+* Fix: Thanks to [J Bradford Dillon](http://www.jbradforddillon.com/web-development/tinymce-excerpt-for-25/) for spotting 
+and providing code to fix WordPress following the changes to the rich text editor in WordPress 2.5. All done now, and 
+retaining backwards compatibility for previous versions.
+
 = v1.2 2007/11/23 =
 
 * Fix: Thanks to [Jascha Ephraim](http://www.jaschaephraim.com/) for spotting 
@@ -29,7 +35,8 @@ auto-paragraphised. It is now.
 
 Please [report any issues](http://www.simonwheatley.co.uk/contact-me/) that you find.
 
-* When you click the "advanced toolbar" button, the advanced toolbar shows up on the Content, rather than the excerpt. Reported by [Jorge Villalobos](http://hypenotic.com/)
+* In WordPress versions prior to WordPress 2.5, when you click the "advanced toolbar" button, the advanced toolbar shows up on the 
+Content, rather than the excerpt. Reported by [Jorge Villalobos](http://hypenotic.com/)
 * You can’t send images to the excerpt editor from the edit page file browser; 
 you have to send them to the main editor, then copy and paste.
 * To show the excerpt you have to use a template which uses 
@@ -50,4 +57,5 @@ I'm simply noting requests here, I've not necessarily looked into how possible a
 
 == Screenshots ==
 
-1. Showing the TinyMCE Editor on the optional excerpt field, ready for editing.
+1. WordPress 2.5: Showing the TinyMCE Editor on the optional excerpt field, ready for editing.
+2. Pre WordPress 2.5: Showing the TinyMCE Editor on the optional excerpt field, ready for editing.
