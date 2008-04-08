@@ -1,6 +1,6 @@
 === TinyMCE Excerpt ===
 Contributors: simonwheatley
-Donate link: http://www.simonwheatley.co.uk/wordpress-plugins/
+Donate link: http://www.simonwheatley.co.uk/wordpress/
 Tags: tinymce, rich text editor, excerpt
 Requires at least: 2.2.3
 Tested up to: 2.5
@@ -21,9 +21,8 @@ Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
 
 = v1.3 2008/04/08 =
 
-* Fix: Thanks to [J Bradford Dillon](http://www.jbradforddillon.com/web-development/tinymce-excerpt-for-25/) for spotting 
-and providing code to fix WordPress following the changes to the rich text editor in WordPress 2.5. All done now, and 
-retaining backwards compatibility for previous versions.
+* Fix: Now works with WordPress 2.5. Thanks to [J Bradford Dillon](http://www.jbradforddillon.com/web-development/tinymce-excerpt-for-25/) for spotting 
+providing some code. Retains backwards compatibility for previous versions of WordPress.
 
 = v1.2 2007/11/23 =
 
