@@ -21,8 +21,8 @@ Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
 
 = v1.3 2008/04/08 =
 
-* Fix: Now works with WordPress 2.5. Thanks to [J Bradford Dillon](http://www.jbradforddillon.com/web-development/tinymce-excerpt-for-25/) for spotting 
-providing some code. Retains backwards compatibility for previous versions of WordPress.
+* Fix: Now works with WordPress 2.5. Thanks to [J Bradford Dillon](http://www.jbradforddillon.com/web-development/tinymce-excerpt-for-25/) 
+for reporting the issue & providing some code. Retains backwards compatibility for previous versions of WordPress.
 
 = v1.2 2007/11/23 =
 
