@@ -3,10 +3,13 @@
 Plugin Name: TinyMCE Excerpt
 Plugin URI: http://www.simonwheatley.co.uk/wordpress-plugins/tinymce-excerpt/
 Description: Use Tiny MCE for the excerpt while editing the excerpt.
-Version: 1.3
+Version: 1.31
 Author: Simon Wheatley
 Author URI: http://www.simonwheatley.co.uk/
 
+= v1.31 2008/04/08 =
+
+* Fix: Fixed some issues whereby some JS was being called on pages other than the post edit page. Refactored some code, no additional functionality.
 
 = v1.3 2008/04/08 =
 
@@ -42,36 +45,51 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // JQ JS to add the class 'mceEditor' to the excerpt textarea
 function tme_convert_excerpt_js()
 {
-	echo "\n";
-	echo '<script type="text/javascript">';
-	echo "\n";
-	echo '/* <![CDATA[ */';
-	echo "\n// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5\n";
-	echo 'jQuery(document).ready( function () { jQuery("#excerpt").addClass("mceEditor"); } ); if ( typeof tinyMCE.execCommand == "function" ) tinyMCE.execCommand("mceAddControl", false, "excerpt");';
-	echo "\n";
-	echo '/* ]]> */';
-	echo "\n";
-	echo '</script>';
-	echo "\n";
+	// Only continue if this is an editing screen
+	if ( ! tme_rich_editing() ) return;
+?>
+<script type="text/javascript">
+	/* <![CDATA[ */
+		// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5
+		jQuery(document).ready( function () { 
+			jQuery("#excerpt").addClass("mceEditor"); 
+			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
+				jQuery("#excerpt").wrap( "<div id='editorcontainer'></div>" ); 
+				tinyMCE.execCommand("mceAddControl", false, "excerpt");
+			}
+		}); 
+	/* ]]> */
+</script>
+<?php
 }
 
 // Enqueue script files, for inclusion by the standard WP magic
 function tme_admin_enqueue_js()
 {
-	global $editing;
-	if ( $editing && user_can_richedit() ) {
-		wp_enqueue_script('jquery'); // Probably there anyway, but best to be sure
-	}
+	// Only continue if this is an editing screen
+	if ( ! tme_rich_editing() ) return;
+	wp_enqueue_script('jquery'); // Probably there anyway, but best to be sure
 }
 
 // Quick CSS make our new excerpt editor even more lovelier
 function tme_admin_css()
 {
+	// Only continue if this is an editing screen
+	if ( ! tme_rich_editing() ) return;
+	// Fix the CSS, so the resize icon appears hard against the far right of the TinyMCE status bar.
+?>
+<style type='text/css'>
+	#postexcerpt .mceStatusbarResize { margin-right: 0; }
+	#postexcerpt #editorcontainer { border-style: solid; padding: 0; }	
+</style>
+<?php
+}
+
+// Are we on an editing screen?
+function tme_rich_editing()
+{
 	global $editing;
-	if ( $editing && user_can_richedit() ) {
-		// Fix the CSS, so the resize icon appears hard against the far right of the TinyMCE status bar.
-		echo "<style type='text/css'> #postexcerpt .mceStatusbarResize { margin-right: 0; } </style>";
-	}
+	return ( $editing && user_can_richedit() );
 }
 
 // Hook it up to Wordpress

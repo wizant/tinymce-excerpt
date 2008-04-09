@@ -4,7 +4,7 @@ Donate link: http://www.simonwheatley.co.uk/wordpress/
 Tags: tinymce, rich text editor, excerpt
 Requires at least: 2.2.3
 Tested up to: 2.5
-Stable tag: 1.3
+Stable tag: 1.31
 
 Enables rich text editing on the excerpt field.
 
@@ -18,6 +18,10 @@ buttons, they will also be applied to the excerpt editor.
 Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
 
 == Change Log ==
+
+= v1.31 2008/04/08 =
+
+* Fix: Fixed some issues whereby some JS was being called on pages other than the post edit page. Refactored some code, no additional functionality.
 
 = v1.3 2008/04/08 =
 
