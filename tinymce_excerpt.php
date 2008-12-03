@@ -1,11 +1,23 @@
-<?php
-/*
-Plugin Name: TinyMCE Excerpt
-Plugin URI: http://www.simonwheatley.co.uk/wordpress-plugins/tinymce-excerpt/
-Description: Use Tiny MCE for the excerpt while editing the excerpt.
-Version: 1.31
-Author: Simon Wheatley
-Author URI: http://www.simonwheatley.co.uk/
+=== TinyMCE Excerpt ===
+Contributors: simonwheatley
+Donate link: http://www.simonwheatley.co.uk/wordpress/
+Tags: tinymce, rich text editor, excerpt
+Requires at least: 2.2.3
+Tested up to: 2.7-beta3
+Stable tag: 1.31
+
+Enables rich text editing on the excerpt field.
+
+== Description ==
+
+This is a simple plugin that enables rich text editing on the excerpt field.
+
+If you have any plugins installed which alter TinyMCE, e.g. to add additional 
+buttons, they will also be applied to the excerpt editor.
+
+Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
+
+== Change Log ==
 
 = v1.31 2008/04/08 =
 
@@ -22,86 +34,31 @@ for reporting the issue & providing some code. Retains backwards compatibility f
 and providing code to fix an issue where the excerpt content wasn't 
 auto-paragraphised. It is now.
 
-v1.1 - Safer use of jQuery, through the jQuery var itself. There's an awful lot of 
-scripting going on in the edit pages.
+==Known issues / bugs==
 
-Copyright 2007 Simon Wheatley
+Please [report any issues](http://www.simonwheatley.co.uk/contact-me/) that you find.
 
-This script is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or
-(at your option) any later version.
+* In WordPress versions prior to WordPress 2.5, when you click the "advanced toolbar" button, the advanced toolbar shows up on the 
+Content, rather than the excerpt. Reported by [Jorge Villalobos](http://hypenotic.com/)
+* You can’t send images to the excerpt editor from the edit page file browser; 
+you have to send them to the main editor, then copy and paste.
+* To show the excerpt you have to use a template which uses 
+[the_excerpt](http://codex.wordpress.org/Template_Tags/the_excerpt), rather 
+than [the_content](http://codex.wordpress.org/Template_Tags/the_content).
 
-This script is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+== Requests ==
 
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+I'm simply noting requests here, I've not necessarily looked into how possible any of these are or how much effort they might require.
 
-*/
+* It would be great if you could switch between TinyMCE and Quicktags as the content does. Requested by [Jorge Villalobos](http://hypenotic.com/)
 
-// JQ JS to add the class 'mceEditor' to the excerpt textarea
-function tme_convert_excerpt_js()
-{
-	// Only continue if this is an editing screen
-	if ( ! tme_rich_editing() ) return;
-?>
-<script type="text/javascript">
-	/* <![CDATA[ */
-		// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5
-		jQuery(document).ready( function () { 
-			jQuery("#excerpt").addClass("mceEditor"); 
-			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
-				jQuery("#excerpt").wrap( "<div id='editorcontainer'></div>" ); 
-				tinyMCE.execCommand("mceAddControl", false, "excerpt");
-			}
-		}); 
-	/* ]]> */
-</script>
-<?php
-}
+== Installation ==
 
-// Enqueue script files, for inclusion by the standard WP magic
-function tme_admin_enqueue_js()
-{
-	// Only continue if this is an editing screen
-	if ( ! tme_rich_editing() ) return;
-	wp_enqueue_script('jquery'); // Probably there anyway, but best to be sure
-}
+1. Upload `tinymce_excerpt.php` to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Edit a post and enjoy the new rich styles in your excerpts
 
-// Quick CSS make our new excerpt editor even more lovelier
-function tme_admin_css()
-{
-	// Only continue if this is an editing screen
-	if ( ! tme_rich_editing() ) return;
-	// Fix the CSS, so the resize icon appears hard against the far right of the TinyMCE status bar.
-?>
-<style type='text/css'>
-	#postexcerpt .mceStatusbarResize { margin-right: 0; }
-	#postexcerpt #editorcontainer { border-style: solid; padding: 0; }	
-</style>
-<?php
-}
+== Screenshots ==
 
-// Are we on an editing screen?
-function tme_rich_editing()
-{
-	global $editing;
-	return ( $editing && user_can_richedit() );
-}
-
-// Hook it up to Wordpress
-
-// We need to enqueue some scripts. This is not an ideal action 
-// hook, but it does the business
-add_action('admin_xml_ns', 'tme_admin_enqueue_js');
-// Paragraphise the excerpt on save
-add_filter('edit_post_excerpt', 'wpautop');
-// Some CSS
-add_action('admin_head', 'tme_admin_css');
-// Some inline JS in the head, to avoid loading another file
-add_action('admin_head', 'tme_convert_excerpt_js');
-
-?>
+1. WordPress 2.5: Showing the TinyMCE Editor on the optional excerpt field, ready for editing.
+2. Pre WordPress 2.5: Showing the TinyMCE Editor on the optional excerpt field, ready for editing.
