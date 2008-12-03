@@ -3,7 +3,7 @@ Contributors: simonwheatley
 Donate link: http://www.simonwheatley.co.uk/wordpress/
 Tags: tinymce, rich text editor, excerpt
 Requires at least: 2.2.3
-Tested up to: 2.5
+Tested up to: 2.7-beta3
 Stable tag: 1.31
 
 Enables rich text editing on the excerpt field.
