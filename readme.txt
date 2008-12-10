@@ -22,6 +22,7 @@ Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
 = v1.31 2008/04/08 =
 
 * Fix: Fixed some issues whereby some JS was being called on pages other than the post edit page. Refactored some code, no additional functionality.
+* OOPS: Managed to copy the readme file over the main php file in a recent tweak of the documentation for this release. Fixed now.
 
 = v1.3 2008/04/08 =
 
