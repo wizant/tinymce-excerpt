@@ -3,9 +3,13 @@
 Plugin Name: TinyMCE Excerpt
 Plugin URI: http://www.simonwheatley.co.uk/wordpress-plugins/tinymce-excerpt/
 Description: Use Tiny MCE for the excerpt while editing the excerpt.
-Version: 1.31
+Version: 1.32
 Author: Simon Wheatley
 Author URI: http://www.simonwheatley.co.uk/
+
+= v1.31 2008/04/08 =
+
+* Bugfixes from Eric Zhang (thanks!).
 
 = v1.31 2008/04/08 =
 
@@ -50,14 +54,19 @@ function tme_convert_excerpt_js()
 ?>
 <script type="text/javascript">
 	/* <![CDATA[ */
-		// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5
+	// JQ JS to add the class 'mceEditor' to the excerpt textarea
+    function tme_convertExcerpt() {
 		jQuery(document).ready( function () { 
 			jQuery("#excerpt").addClass("mceEditor"); 
 			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
-				jQuery("#excerpt").wrap( "<div id='editorcontainer'></div>" ); 
+				// Ensure we don't double wrap stuff (in case tme_convertExcerpt gets called twice)
+				if ( ! jQuery("#excerpt").length )
+					jQuery("#excerpt").wrap( "<div id='excerpteditorcontainer'></div>" ); 
 				tinyMCE.execCommand("mceAddControl", false, "excerpt");
 			}
 		}); 
+	}
+	tme_convertExcerpt();
 	/* ]]> */
 </script>
 <?php
@@ -80,7 +89,7 @@ function tme_admin_css()
 ?>
 <style type='text/css'>
 	#postexcerpt .mceStatusbarResize { margin-right: 0; }
-	#postexcerpt #editorcontainer { border-style: solid; padding: 0; }	
+	#postexcerpt #excerpteditorcontainer { border-style: solid; padding: 0; }	
 </style>
 <?php
 }
@@ -98,7 +107,7 @@ function tme_rich_editing()
 // hook, but it does the business
 add_action('admin_xml_ns', 'tme_admin_enqueue_js');
 // Paragraphise the excerpt on save
-add_filter('edit_post_excerpt', 'wpautop');
+add_filter('excerpt_save_pre', 'wpautop');
 // Some CSS
 add_action('admin_head', 'tme_admin_css');
 // Some inline JS in the head, to avoid loading another file

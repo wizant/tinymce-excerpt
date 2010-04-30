@@ -3,7 +3,7 @@ Contributors: simonwheatley
 Donate link: http://www.simonwheatley.co.uk/wordpress/
 Tags: tinymce, rich text editor, excerpt
 Requires at least: 2.2.3
-Tested up to: 2.7-beta3
+Tested up to: 3.0b2
 Stable tag: 1.31
 
 Enables rich text editing on the excerpt field.
@@ -18,6 +18,11 @@ buttons, they will also be applied to the excerpt editor.
 Any issues: [contact me](http://www.simonwheatley.co.uk/contact-me/).
 
 == Change Log ==
+
+= v1.32 2010/04/30 =
+
+* Bug fixes from Eric Zhang (thanks!)
+* Should now be compatible with Google's (Living Stories kit for WordPress)[http://code.google.com/p/living-stories/wiki/WordpressInstallation]
 
 = v1.31 2008/04/08 =
 
