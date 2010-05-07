@@ -56,17 +56,15 @@ function tme_convert_excerpt_js()
 	/* <![CDATA[ */
 	// JQ JS to add the class 'mceEditor' to the excerpt textarea
     function tme_convertExcerpt() {
-		jQuery(document).ready( function () { 
-			jQuery("#excerpt").addClass("mceEditor"); 
-			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
-				// Ensure we don't double wrap stuff (in case tme_convertExcerpt gets called twice)
-				if ( ! jQuery("#excerpt").length )
-					jQuery("#excerpt").wrap( "<div id='excerpteditorcontainer'></div>" ); 
-				tinyMCE.execCommand("mceAddControl", false, "excerpt");
-			}
-		}); 
+		jQuery("#excerpt").addClass("mceEditor"); 
+		if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
+			// Ensure we don't double wrap stuff (in case tme_convertExcerpt gets called twice)
+			if ( ! jQuery("#excerpt").length )
+				jQuery("#excerpt").wrap( "<div id='excerpteditorcontainer'></div>" ); 
+			tinyMCE.execCommand("mceAddControl", false, "excerpt");
+		}
 	}
-	tme_convertExcerpt();
+	jQuery( document ).ready( tme_convertExcerpt );
 	/* ]]> */
 </script>
 <?php
