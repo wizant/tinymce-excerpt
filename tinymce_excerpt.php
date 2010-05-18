@@ -3,31 +3,9 @@
 Plugin Name: TinyMCE Excerpt
 Plugin URI: http://www.simonwheatley.co.uk/wordpress-plugins/tinymce-excerpt/
 Description: Use Tiny MCE for the excerpt while editing the excerpt.
-Version: 1.32
+Version: 1.31
 Author: Simon Wheatley
 Author URI: http://www.simonwheatley.co.uk/
-
-= v1.31 2008/04/08 =
-
-* Bugfixes from Eric Zhang (thanks!).
-
-= v1.31 2008/04/08 =
-
-* Fix: Fixed some issues whereby some JS was being called on pages other than the post edit page. Refactored some code, no additional functionality.
-
-= v1.3 2008/04/08 =
-
-* Fix: Now works with WordPress 2.5. Thanks to [J Bradford Dillon](http://www.jbradforddillon.com/web-development/tinymce-excerpt-for-25/) 
-for reporting the issue & providing some code. Retains backwards compatibility for previous versions of WordPress.
-
-= v1.2 2007/11/23 =
-
-* Fix: Thanks to [Jascha Ephraim](http://www.jaschaephraim.com/) for spotting 
-and providing code to fix an issue where the excerpt content wasn't 
-auto-paragraphised. It is now.
-
-v1.1 - Safer use of jQuery, through the jQuery var itself. There's an awful lot of 
-scripting going on in the edit pages.
 
 Copyright 2007 Simon Wheatley
 
@@ -54,17 +32,18 @@ function tme_convert_excerpt_js()
 ?>
 <script type="text/javascript">
 	/* <![CDATA[ */
-	// JQ JS to add the class 'mceEditor' to the excerpt textarea
+	// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5
     function tme_convertExcerpt() {
-		jQuery("#excerpt").addClass("mceEditor"); 
-		if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
-			// Ensure we don't double wrap stuff (in case tme_convertExcerpt gets called twice)
-			if ( ! jQuery("#excerpt").length )
-				jQuery("#excerpt").wrap( "<div id='excerpteditorcontainer'></div>" ); 
-			tinyMCE.execCommand("mceAddControl", false, "excerpt");
-		}
+		jQuery(document).ready( function () { 
+			jQuery("#excerpt").addClass("mceEditor"); 
+			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
+				// Ensure we don't double wrap stuff
+				if ( ! jQuery("#excerpt").length )
+					jQuery("#excerpt").wrap( "<div id='excerpteditorcontainer'></div>" ); 
+				tinyMCE.execCommand("mceAddControl", false, "excerpt");
+			}
+		}); 
 	}
-	jQuery( document ).ready( tme_convertExcerpt );
 	/* ]]> */
 </script>
 <?php
