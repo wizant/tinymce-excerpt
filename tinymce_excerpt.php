@@ -3,7 +3,7 @@
 Plugin Name: TinyMCE Excerpt
 Plugin URI: http://www.simonwheatley.co.uk/wordpress-plugins/tinymce-excerpt/
 Description: Use Tiny MCE for the excerpt while editing the excerpt.
-Version: 1.31
+Version: 1.33
 Author: Simon Wheatley
 Author URI: http://www.simonwheatley.co.uk/
 
