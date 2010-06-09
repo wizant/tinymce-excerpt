@@ -33,16 +33,15 @@ function tme_convert_excerpt_js()
 <script type="text/javascript">
 	/* <![CDATA[ */
 	// JQ JS to add the class 'mceEditor' to the excerpt textarea pre WP 2.5
+	jQuery(document).ready( tme_convertExcerpt ); 
     function tme_convertExcerpt() {
-		jQuery(document).ready( function () { 
-			jQuery("#excerpt").addClass("mceEditor"); 
-			if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
-				// Ensure we don't double wrap stuff
-				if ( ! jQuery("#excerpt").length )
-					jQuery("#excerpt").wrap( "<div id='excerpteditorcontainer'></div>" ); 
-				tinyMCE.execCommand("mceAddControl", false, "excerpt");
-			}
-		}); 
+		jQuery("#excerpt").addClass("mceEditor"); 
+		if ( typeof( tinyMCE ) == "object" && typeof( tinyMCE.execCommand ) == "function" ) {
+			// Ensure we don't double wrap stuff
+			if ( ! jQuery("#excerpt").length )
+				jQuery("#excerpt").wrap( "<div id='excerpteditorcontainer'></div>" ); 
+			tinyMCE.execCommand("mceAddControl", false, "excerpt");
+		}
 	}
 	/* ]]> */
 </script>
